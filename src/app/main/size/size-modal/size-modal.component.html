@@ -1,0 +1,17 @@
+<div class="header">
+    <span *ngIf="!data.isEdit">Size Create</span>
+    <span *ngIf="data.isEdit">Size Edit</span>
+    <mat-icon (click)="closeBtn()">clear</mat-icon>
+</div>
+<div class="content" fxLayout="column">
+    <mat-form-field appearance="outline">
+        <mat-label>Name</mat-label>
+        <input type="text" matInput [(ngModel)]="name">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Amount</mat-label>
+        <input type="number" matInput [(ngModel)]="amount">
+    </mat-form-field>
+    <button *ngIf="!data.isEdit" mat-raised-button color="accent" (click)="submitBtn()" style="width: 125px; margin: auto;" [disabled]="!name || !amount">Save</button>
+    <button *ngIf="data.isEdit" mat-raised-button color="accent" (click)="editBtn()" style="width: 125px; margin: auto;" [disabled]="!name || !amount">Edit</button>
+</div>

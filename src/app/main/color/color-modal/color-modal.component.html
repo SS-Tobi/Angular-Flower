@@ -1,0 +1,21 @@
+<div class="header">
+    <span>Color Edit</span>
+    <mat-icon (click)="closeBtn()">clear</mat-icon>
+</div>
+<div class="content" fxLayout="column">
+    <div class="uploadfilecontainer" (click)="fileInput.click()" appDragDrop (onFileDropped)="uploadFile($event)">
+        <input hidden type="file" #fileInput (change)="uploadFile($event.target.files)">
+    </div>
+    <ng-container *ngIf="urls.length > 0">
+        <div class="files-list" *ngFor="let url of urls;let i=index">
+            <img [src]="url" alt="">
+            <button *ngIf="isReset" class="delete-file" (click)="deleteAttachment(i)">
+                <img src="../../assets/Recycle_Bin_Full.png">
+            </button>
+        </div>
+    </ng-container>
+    <div style="text-align: center;">
+        <button mat-raised-button color="warn" style="width: 125px; margin-right: 5px;" (click)="resetImageBtn()">Reset Images</button>
+        <button mat-raised-button color="accent" (click)="editBtn()" style="width: 125px;" [disabled]="urls.length != 4">Edit</button>
+    </div>
+</div>

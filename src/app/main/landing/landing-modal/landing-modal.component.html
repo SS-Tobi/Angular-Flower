@@ -1,0 +1,26 @@
+<div class="header">
+    <span *ngIf="!data.isEdit">Landing Create</span>
+    <span *ngIf="data.isEdit">Landing Edit</span>
+    <mat-icon (click)="closeBtn()">clear</mat-icon>
+</div>
+<div class="content" fxLayout="column">
+    <mat-form-field appearance="outline">
+        <mat-label>Title</mat-label>
+        <input type="text" matInput [(ngModel)]="title">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Description</mat-label>
+        <textarea matInput autosize [(ngModel)]="description"></textarea>
+    </mat-form-field>
+    <div class="uploadfilecontainer" (click)="fileInput.click()" appDragDrop (onFileDropped)="uploadFile($event)">
+        <input hidden type="file" #fileInput (change)="uploadFile($event.target.files)">
+    </div>
+    <div *ngIf="url" class="files-list">
+        <img [src]="url" alt="">
+        <button class="delete-file" (click)="deleteAttachment()">
+            <img src="../../assets/Recycle_Bin_Full.png">
+        </button>
+    </div>
+    <button *ngIf="!data.isEdit" mat-raised-button color="accent" (click)="submitBtn()" style="width: 125px; margin: auto;" [disabled]="!title || !description || !url">Save</button>
+    <button *ngIf="data.isEdit" mat-raised-button color="accent" (click)="editBtn()" style="width: 125px; margin: auto;" [disabled]="!title || !description || !url">Edit</button>
+</div>
