@@ -19,6 +19,11 @@
             <th mat-header-cell *matHeaderCellDef> Description </th>
             <td mat-cell *matCellDef="let element"> {{element.description}} </td>
           </ng-container>
+
+          <ng-container matColumnDef="detail">
+            <th mat-header-cell *matHeaderCellDef> Detail </th>
+            <td mat-cell *matCellDef="let element"> {{element.detail}} </td>
+          </ng-container>
       
           <ng-container matColumnDef="action">
             <th mat-header-cell *matHeaderCellDef> Action </th>

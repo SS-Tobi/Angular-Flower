@@ -13,6 +13,7 @@ export class LandingModalComponent implements OnInit {
     url: any;
     title: any;
     description: any;
+    detail: any;
 
     constructor(
         @Inject(MAT_DIALOG_DATA) public data: any,
@@ -23,6 +24,7 @@ export class LandingModalComponent implements OnInit {
         if (data.isEdit) {
             this.title = data.data.title
             this.description = data.data.description
+            this.detail = data.data.detail
             console.log("url1: ", this.url)
             this.url = environment.baseUrl + "landing/" + data.data._id + '.' + data.data.type + "?" + Math.floor(Math.random() * 100) + 1
             console.log("url: ", this.url)
@@ -49,7 +51,7 @@ export class LandingModalComponent implements OnInit {
         if (this.file) {
             type = this.file.name.substr(this.file.name.length - 3)
         }
-        this.landingService.updateLanding(this.data.data._id, this.title, this.description, type).subscribe((res: any) => {
+        this.landingService.updateLanding(this.data.data._id, this.title, this.description, this.detail, type).subscribe((res: any) => {
             console.log("editLanding: ", res)
             if (this.file) {
                 let formData = new FormData();

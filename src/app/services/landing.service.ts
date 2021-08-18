@@ -30,8 +30,8 @@ export class LandingService extends CommonHttpService {
     );
   }
 
-  public updateLanding(_id, title, description, type) {
-    return this.http.post(this.cs.getApiUrl(this.cs.updateLanding), {_id, title, description, type}).pipe(
+  public updateLanding(_id, title, description, detail, type) {
+    return this.http.post(this.cs.getApiUrl(this.cs.updateLanding), {_id, title, description, detail, type}).pipe(
       map((Response) => {
         return Response;
       }),
