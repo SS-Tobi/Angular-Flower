@@ -22,6 +22,7 @@ export class SizeComponent implements OnInit
     displayedColumns: string[] = ['position', 'name', 'amount', 'action'];
     dataSource = new MatTableDataSource<any>([]);
     sizeText: any;
+    sizeText_sw: any;
 
     @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
@@ -63,6 +64,7 @@ export class SizeComponent implements OnInit
         this.sizeService.getSizeText().subscribe((res: any) => {
             if (res.data.length > 0) {
                 this.sizeText = res.data[0].text
+                this.sizeText_sw = res.data[0].text_sw
                 console.log("getSizeText: ", res)
             }
         })
@@ -115,7 +117,7 @@ export class SizeComponent implements OnInit
     }
 
     saveText() {
-        this.sizeService.saveSizeText(this.sizeText).subscribe(res => {
+        this.sizeService.saveSizeText(this.sizeText, this.sizeText_sw).subscribe(res => {
             console.log("saveSizeText: ", res)
         })
     }

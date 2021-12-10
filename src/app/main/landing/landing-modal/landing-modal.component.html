@@ -9,12 +9,24 @@
         <input type="text" matInput [(ngModel)]="title">
     </mat-form-field>
     <mat-form-field appearance="outline">
+        <mat-label>Title_SW</mat-label>
+        <input type="text" matInput [(ngModel)]="title_sw">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
         <mat-label>Description</mat-label>
         <textarea matInput autosize [(ngModel)]="description"></textarea>
     </mat-form-field>
     <mat-form-field appearance="outline">
+        <mat-label>Description_SW</mat-label>
+        <textarea matInput autosize [(ngModel)]="description_sw"></textarea>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
         <mat-label>Detail</mat-label>
         <textarea matInput autosize [(ngModel)]="detail"></textarea>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Detail_SW</mat-label>
+        <textarea matInput autosize [(ngModel)]="detail_sw"></textarea>
     </mat-form-field>
     <div class="uploadfilecontainer" (click)="fileInput.click()" appDragDrop (onFileDropped)="uploadFile($event)">
         <input hidden type="file" #fileInput (change)="uploadFile($event.target.files)">

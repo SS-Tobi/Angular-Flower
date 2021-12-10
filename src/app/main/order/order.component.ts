@@ -18,6 +18,7 @@ import { AddressService } from 'app/services/address.service';
 export class OrderComponent implements OnInit
 {
     shop_address: any;
+    shop_address_sw: any;
     latitude: any;
     longitude: any;
     working_hours: any;
@@ -73,6 +74,7 @@ export class OrderComponent implements OnInit
     getAddress() {
         this.addressService.getAddress().subscribe((res: any) => {
             this.shop_address = res.data[0].text
+            this.shop_address_sw = res.data[0].text_sw
             this.latitude = res.data[0].latitude
             this.longitude = res.data[0].longitude
             this.working_hours = res.data[0].working_hours
@@ -82,7 +84,7 @@ export class OrderComponent implements OnInit
         })
     }
     saveAddress() {
-        this.addressService.saveAddress(this.shop_address, this.latitude, this.longitude, this.working_hours, this.tell, this.website, this.email).subscribe(res => {
+        this.addressService.saveAddress(this.shop_address, this.shop_address_sw, this.latitude, this.longitude, this.working_hours, this.tell, this.website, this.email).subscribe(res => {
             console.log("saveAddress", res)
         })
     }

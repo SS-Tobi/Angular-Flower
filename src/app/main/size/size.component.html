@@ -3,6 +3,10 @@
     <mat-label>Size Text</mat-label>
     <textarea matInput autosize [(ngModel)]="sizeText"></textarea>
   </mat-form-field>
+  <mat-form-field appearance="outline" style="width: 100%;">
+    <mat-label>Size Text(Sweden)</mat-label>
+    <textarea matInput autosize [(ngModel)]="sizeText_sw"></textarea>
+  </mat-form-field>
   <button mat-stroked-button color="accent" (click)="saveText()">Save</button>
   <div style="padding-bottom: 20px; text-align: right;">
       <button mat-stroked-button color="accent" (click)="AddBtn()">Add Size</button>

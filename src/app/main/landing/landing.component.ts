@@ -19,7 +19,7 @@ import { FuseConfigService } from '@fuse/services/config.service';
 })
 export class LandingComponent implements OnInit
 {
-    displayedColumns: string[] = ['position', 'title', 'description', 'detail', 'action'];
+    displayedColumns: string[] = ['position', 'title', 'description', 'detail', 'title_sw', 'description_sw', 'detail_sw', 'action'];
     dataSource = new MatTableDataSource<any>([]);
 
     @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;

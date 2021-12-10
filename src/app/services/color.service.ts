@@ -21,8 +21,8 @@ export class ColorService extends CommonHttpService {
     );
   }
 
-  public saveColorText(text) {
-    return this.http.post(this.cs.getApiUrl(this.cs.saveColorText), {text}).pipe(
+  public saveColorText(text, text_sw) {
+    return this.http.post(this.cs.getApiUrl(this.cs.saveColorText), {text, text_sw}).pipe(
       map((Response) => {
         return Response;
       }),

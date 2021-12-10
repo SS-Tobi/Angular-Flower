@@ -21,8 +21,8 @@ export class AddressService extends CommonHttpService {
     );
   }
 
-  public saveAddress(text, latitude, longitude, working_hours, tell, website, email) {
-    return this.http.post(this.cs.getApiUrl(this.cs.saveAddress), {text, latitude, longitude, working_hours, tell, website, email}).pipe(
+  public saveAddress(text, text_sw, latitude, longitude, working_hours, tell, website, email) {
+    return this.http.post(this.cs.getApiUrl(this.cs.saveAddress), {text, text_sw, latitude, longitude, working_hours, tell, website, email}).pipe(
       map((Response) => {
         return Response;
       }),

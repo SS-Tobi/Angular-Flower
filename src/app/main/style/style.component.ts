@@ -22,6 +22,7 @@ export class StyleComponent implements OnInit
     displayedColumns: string[] = ['position', 'name', 'action'];
     dataSource = new MatTableDataSource<any>([]);
     styleText: any;
+    styleText_sw: any;
 
     @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
@@ -63,6 +64,7 @@ export class StyleComponent implements OnInit
         this.styleService.getStyleText().subscribe((res: any) => {
             if (res.data.length > 0) {
                 this.styleText = res.data[0].text
+                this.styleText_sw = res.data[0].text_sw
                 console.log("getStyleText: ", res)
             }
         })
@@ -115,7 +117,7 @@ export class StyleComponent implements OnInit
     }
 
     saveText() {
-        this.styleService.saveStyleText(this.styleText).subscribe(res => {
+        this.styleService.saveStyleText(this.styleText, this.styleText_sw).subscribe(res => {
             console.log("saveStyletext: ", res)
         })
     }

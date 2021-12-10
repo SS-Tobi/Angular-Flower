@@ -21,8 +21,8 @@ export class StyleService extends CommonHttpService {
     );
   }
 
-  public saveStyleText(text) {
-    return this.http.post(this.cs.getApiUrl(this.cs.saveStyleText), {text}).pipe(
+  public saveStyleText(text, text_sw) {
+    return this.http.post(this.cs.getApiUrl(this.cs.saveStyleText), {text, text_sw}).pipe(
       map((Response) => {
         return Response;
       }),

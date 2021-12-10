@@ -21,8 +21,8 @@ export class LandingService extends CommonHttpService {
     );
   }
 
-  public createLanding(title, description, type) {
-    return this.http.post(this.cs.getApiUrl(this.cs.createLanding), {title, description, type}).pipe(
+  public createLanding(title, description, detail, title_sw, description_sw, detail_sw, type) {
+    return this.http.post(this.cs.getApiUrl(this.cs.createLanding), {title, description, detail, title_sw, description_sw, detail_sw, type}).pipe(
       map((Response) => {
         return Response;
       }),
@@ -30,8 +30,8 @@ export class LandingService extends CommonHttpService {
     );
   }
 
-  public updateLanding(_id, title, description, detail, type) {
-    return this.http.post(this.cs.getApiUrl(this.cs.updateLanding), {_id, title, description, detail, type}).pipe(
+  public updateLanding(_id, title, description, detail, title_sw, description_sw, detail_sw, type) {
+    return this.http.post(this.cs.getApiUrl(this.cs.updateLanding), {_id, title, description, detail, title_sw, description_sw, detail_sw, type}).pipe(
       map((Response) => {
         return Response;
       }),

@@ -22,6 +22,7 @@ export class ColorComponent implements OnInit
     displayedColumns: string[] = ['position', 'name', 'action'];
     dataSource = new MatTableDataSource<any>([]);
     colorText: any;
+    colorText_sw: any;
 
     @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
@@ -63,6 +64,7 @@ export class ColorComponent implements OnInit
         this.colorService.getColorText().subscribe((res: any) => {
             if (res.data.length > 0) {
                 this.colorText = res.data[0].text
+                this.colorText_sw = res.data[0].text_sw
                 console.log("getColorText: ", res)
             }
         })
@@ -109,7 +111,7 @@ export class ColorComponent implements OnInit
     }
 
     saveText() {
-        this.colorService.saveColorText(this.colorText).subscribe(res => {
+        this.colorService.saveColorText(this.colorText, this.colorText_sw).subscribe(res => {
             console.log("saveColorText: ", res)
         })
     }

@@ -3,6 +3,10 @@
       <mat-label>Style Text</mat-label>
       <textarea matInput autosize [(ngModel)]="styleText"></textarea>
     </mat-form-field>
+    <mat-form-field appearance="outline" style="width: 100%;">
+      <mat-label>Style Text(Sweden)</mat-label>
+      <textarea matInput autosize [(ngModel)]="styleText_sw"></textarea>
+    </mat-form-field>
     <button mat-stroked-button color="accent" (click)="saveText()">Save</button>
     <div style="padding-bottom: 20px; text-align: right;">
         <button mat-stroked-button color="accent" (click)="AddBtn()">Add Style</button>

@@ -21,8 +21,8 @@ export class SizeService extends CommonHttpService {
     );
   }
 
-  public saveSizeText(text) {
-    return this.http.post(this.cs.getApiUrl(this.cs.saveSizeText), {text}).pipe(
+  public saveSizeText(text, text_sw) {
+    return this.http.post(this.cs.getApiUrl(this.cs.saveSizeText), {text, text_sw}).pipe(
       map((Response) => {
         return Response;
       }),
